@@ -65,6 +65,15 @@ table {
 }
 
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
+body {
+    font-family: var(--font);
+    color: var(--charcoal);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 1em;
+    min-width: 400px;
+    scroll-behavior: smooth;
+}
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 
@@ -82,7 +91,7 @@ table {
     display: grid;
     place-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 1em;
     overflow: hidden;
 }
 
@@ -90,9 +99,9 @@ table {
  {
     content: "";
 
-    left:-.5rem;
-    width: 3.75rem;
-    height: 3.75rem;
+    left:-.5em;
+    width: 3.75em;
+    height: 3.75em;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 
 }
@@ -102,11 +111,11 @@ table {
     grid-template-columns: repeat(5, 1fr);
     align-items: flex-end;
     justify-content: space-around;
-    gap: 1rem;
+    gap: 1em;
     height: 300px;
     width: 100%;
     max-width: 800px;
-    padding: 1rem;
+    padding: 1em;
     position: relative;
 }
 /* ADD ON TRANSITION ON HEIGHT */
@@ -125,7 +134,7 @@ table {
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: bold;
     color: var(--white);
 }
