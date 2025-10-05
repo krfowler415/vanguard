@@ -154,7 +154,7 @@ body {
 /* HEADER CONTAINER */
 .header .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* allows dropdown inside the same flow */
   align-items: stretch;
   padding: 0 1.5em;
   border-bottom: #007bff;
@@ -169,6 +169,12 @@ body {
   font-weight: 700;
   text-decoration: none;
   font-size: 1.3em;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 /* HAMBURGER ICON */
@@ -216,7 +222,7 @@ body {
   font-weight: 700;
   display: block;
   padding: 0.5em 0;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -266,9 +272,7 @@ body {
   text-decoration: none;
   display: inline-block;
   margin-top: 1rem;
-  transition:
-    background var(--transition),
-    transform var(--transition);
+  transition: background-color var(--transition), transform var(--transition);
 }
 
 .cta-btn:hover {
@@ -329,7 +333,12 @@ body {
   text-align: left;
   padding: 2em 0;
   margin-top: 1rem;
+  position: relative;
+  left: 50%;
+  right: 50%;
   width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 #results h2 {
@@ -597,6 +606,7 @@ footer {
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .results-container {
     gap: 1rem;
     align-items: flex-start;
@@ -615,7 +625,6 @@ footer {
 
   /* Auto-flow fills: [Full Name | Email] then [Company | Industry] */
   .form-item { grid-column: auto; }
-
 
   .form-item--message {
     grid-column: 1;
