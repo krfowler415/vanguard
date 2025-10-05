@@ -252,34 +252,36 @@ body {
   overflow: hidden;
 }
 
-/* Dark overlay gradient */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
-/* Centered content */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
+  border-radius: 12px;
+
+  /* the “frosted glass” effect */
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+
+  /* subtle depth and edges */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Hero text */
 .hero-content h2 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--white);
 }
 
 .hero-content p {
@@ -289,7 +291,6 @@ body {
   color: var(--white);
 }
 
-/* Call-to-action button */
 .cta-btn {
   background: var(--blue);
   color: var(--white);
