@@ -4,118 +4,54 @@
 /* IMPORTED FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-/* CSS RESET (Meyerweb) */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
+/* CSS RESET */
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
 }
 body {
-  line-height: 1.5;
-  font-family: "Inter", sans-serif;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
 }
-ol,
-ul {
-  list-style: none;
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* ROOT VARIABLES */
@@ -145,19 +81,23 @@ body {
 
 /* HEADER */
 .header {
+  position: relative;
   background: var(--black);
   color: var(--white);
-  padding: 1em 0 1em 0;
+  padding: 1em 0;
   transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6),
+              0 4px 10px rgba(0, 123, 255, 0.4),
+              0 2px 5px rgba(0, 123, 255, 0.8);
 }
 
 /* HEADER CONTAINER */
 .header .container {
   display: flex;
-  flex-direction: column; /* allows dropdown inside the same flow */
+  flex-direction: column;
   align-items: stretch;
   padding: 0 1.5em;
-  border-bottom: #007bff;
 }
 
 /* LOGO */
@@ -206,6 +146,7 @@ body {
 /* NAVIGATION */
 .nav {
   width: 100vw;
+  position: relative;
 }
 
 .nav-links {
@@ -217,26 +158,47 @@ body {
 }
 
 .nav-links a {
+  display: block;
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
   color: var(--blue);
   text-decoration: none;
   font-weight: 700;
-  display: block;
   padding: 0.5em 0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .nav-links a:hover {
-  background: rgba(0, 123, 255, 0.2);
+  background: var(--blue);
 }
 
 /* SHOW LINKS WHEN CHECKED */
 .menu-checkbox:checked ~ .nav .nav-links {
   display: flex;
-  width: 100%;
-  text-align: right;
-  align-items: flex-end;
-  padding: 1em 0;
-  transition: all 0.3s ease;
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--black);
+  width: 50%;
+  margin-left: auto;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.menu-checkbox:checked ~ .nav .nav-links a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  width: 50%;
+  padding: 0.5em 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menu-checkbox:checked ~ .nav .nav-links a:hover {
+  color: var(--black);
+  width: 50%;
 }
 
 /* HERO */
@@ -265,27 +227,21 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 2rem;
+  max-width: 75vw;
+  padding: 0.5rem;
   border-radius: 12px;
-
-  /* the “frosted glass” effect */
-  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
-
-  /* subtle depth and edges */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-content h2 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
   font-size: 1rem;
+  font-weight: 600;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   color: var(--white);
@@ -551,7 +507,7 @@ footer {
     flex-direction: row;
   }
 
-  /* hide hamburger on large screens */
+  /* hide hamburger on larger screens */
   .menu-toggle {
     display: none;
   }
@@ -579,7 +535,9 @@ footer {
   }
 
   .nav-links a:hover {
-    background: rgba(0, 123, 255, 0.15);
+    background: var(--blue);
+    color: var(--black);
+    transition: background-color 0.5s ease, transform 0.5s ease;
   }
 
   .services-grid {
